@@ -10,7 +10,7 @@ import Image from 'next/image';
 export default function SwapPage() {
   const avax = useAvax();
   return (
-    <div className='w-full max-w-md mx-auto pt-32'>
+    <div className='h-screen w-full max-w-md mx-auto pt-32'>
       <div className='max-w-sm mx-auto text-center mb-6 space-y-6'>
         <Image
           src='/avalanche.png'
@@ -25,6 +25,9 @@ export default function SwapPage() {
       </div>
       <Card>
         <CardContent className='space-y-4 py-6'>
+          {avax.error && (
+            <p className='bg-red-500 rounded p-2 text-center'>{avax.error}</p>
+          )}
           <div className='text-sm font-medium'>
             Connected:{' '}
             {avax.account

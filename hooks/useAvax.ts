@@ -23,6 +23,7 @@ const Avalanche = () => {
   const [isSending, setIsSending] = useState(false);
   const [message, setMessage] = useState({ type: '', content: '' });
   const [txHash, setTxHash] = useState('');
+  const [error, setError] = useState('');
 
   useEffect(() => {
     checkConnection();
@@ -85,7 +86,7 @@ const Avalanche = () => {
         setIsConnecting(false);
       }
     } else {
-      console.error('MetaMask is not installed');
+      setError('MetaMask is not installed');
     }
   }
 
@@ -199,6 +200,8 @@ const Avalanche = () => {
     isSending,
     message,
     txHash,
+    error,
+    setError,
     setAccount,
     setRecipient,
     setAmount,
